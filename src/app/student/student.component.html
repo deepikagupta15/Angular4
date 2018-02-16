@@ -1,0 +1,63 @@
+<form #studForm='ngForm' (ngSubmit)='saveStudent(studForm.value)'>
+  <label>Student Name: </label>
+  <input type='text' name='studName' ngModel #sname=ngModel required minlength="6" /><br/>
+  <div *ngIf='sname.touched && sname.errors'>
+    <div *ngIf='sname.errors.required; then temp1'></div>
+     
+    
+    <div *ngIf='sname.errors.minlength'>
+      Stud Name has a min length of 6 letters!
+    </div>
+  </div><br/>
+   <label>Student Password: </label>
+  <input type='password' name='studPwd' ngModel #spwd=ngModel required pattern="[A-Za-z]{8,15}" /><br/>
+  <div *ngIf='spwd.touched && spwd.errors'>
+    <div *ngIf='spwd.errors.required ; then temp1'></div>
+     
+    <div *ngIf='spwd.errors.pattern'>
+      Match the pattern for pwd only letters in UPPER/LOWER
+    </div>
+  </div><br/>
+  <label>Select Gender:</label>
+  <input type='radio' name='gender' value='m' required ngModel #sgender=ngModel/>Male
+  <input type='radio' name='gender' value='f' required ngModel/>Female<br>
+  <div *ngIf='sgender.touched && sgender.errors'>
+    <div *ngIf='sgender.errors.required; then temp1'>
+      
+    </div>
+  
+  </div><br/>
+  <label>Select Education:</label>
+  <select name='education' required ngModel #sedu=ngModel>
+    <option value=''>--Select Education--</option>
+    <option *ngFor='let edu of qulaification' [value]=edu>{{edu}}</option>
+  </select><br/>
+  <div *ngIf='sedu.touched && sedu.errors'>
+    <div *ngIf='sedu.errors.required; then temp1'>
+     
+    </div>
+  
+  </div><br/>
+  <label>Enter Email:</label>
+  <input type='email' name='studEmail' ngModel #semail=ngModel required pattern="[a-z0-9]+[@][a-z]+[.][a-z]{3}"/>
+  <div *ngIf='semail.touched && semail.errors'>
+    <div *ngIf='semail.errors.required; then temp1'>
+     
+    </div>
+   <div *ngIf='semail.errors.pattern'>
+      Stud Email match the pattern!
+    </div>
+  </div><br/>
+  <label>Terms and Conditions:</label>
+  <input type="checkbox" name='tnc' ngModel #scheck='ngModel' required/>
+  <div *ngIf='scheck.touched && scheck.errors'>
+    <div *ngIf='scheck.errors.required ; then temp1'>
+      
+    </div>
+  </div>
+  <button class='btn btn-primary' [disabled]=!studForm.valid type='submit'>Save Student</button>
+</form>
+
+<ng-template #temp1 style="font-weight: bold">
+  Mandatory Field, pls enter!!
+</ng-template>

@@ -1,0 +1,27 @@
+<h2>Receipe information</h2>
+<ul>
+  <li *ngFor='let rec of recepies;let i of index'>
+      {{rec.recName | uppercase}}
+      {{rec.recMakeTime}}
+      <button (click)='deleteRecepie(i)' class='btn btn-danger'>Delete</button>
+  </li>
+</ul><br/><hr/>
+<span>
+  {{bday | date: 'fullDate' | lowercase}}<br/>
+  Enter Value:<input type='text' [(ngModel)]=value/><br/>
+  Enter Power:<input type='text' [(ngModel)]=power/><br/>
+  Power: {{value | powerOpn : power}}
+</span><hr/>
+<div>
+  <button (mouseover)='goAhead()' class='btn btn-primary'>
+    {{status ? 'mouseover to Hide':'mouseover to Add'}}</button>
+</div>
+<div *ngIf='status'>
+<h2>Add Your Receipe</h2>
+Enter Receipe id: <input type='text' #rid/><br/>
+Enter Receipe name: <input type='text' #rname/><br/>
+Enter Receipe Prep Time: <input type='text' #rprepTime/><br/>
+Enter Receipe Making Time: <input type='text' #rmakeTime/><br/>
+<button (click)='addRecepie(rid.value,rname.value,rprepTime.value,rmakeTime.value)' class='btn btn-primary'>Add Recepie</button>
+</div>
+

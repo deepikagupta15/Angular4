@@ -1,0 +1,23 @@
+<!--<ul>
+  <li *ngFor='let post of posts'>
+      <h2>{{post.title}}</h2>
+      <h3>{{post.body}}</h3>
+  </li>
+</ul> -->
+
+Enter id:<input type="text" #pid /><br/>
+<button (click)='getPost(pid.value)'>Get Specific Post</button>
+<hr/>
+<span *ngIf='flag;then temp1 else temp2'></span>
+
+<ng-template #temp1>
+  <h2> {{postObject.title}}</h2>
+  <h3>{{postObject.body}}</h3>
+</ng-template>
+
+<ng-template #temp2>
+  No Post data found
+  {{errorMessage}}
+</ng-template>
+ 
+

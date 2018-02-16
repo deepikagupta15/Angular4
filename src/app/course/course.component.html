@@ -1,0 +1,17 @@
+<h2>Course Details</h2>
+<!-- Rendering the Child component--> 
+  <home-course-child *ngFor='let course of courses' [courseObject]=course>
+    
+  </home-course-child>
+  <hr/>
+  Enter Data : <input type='text' [(ngModel)]=value/>
+  <home-course-child [sampleData]=value [courseObject]=courseDefData>
+
+  </home-course-child>
+ 
+  <hr/>
+  
+  
+
+
+

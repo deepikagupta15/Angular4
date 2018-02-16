@@ -1,0 +1,70 @@
+<form [formGroup]=personForm (ngSubmit)="savePerson(personForm.value)">
+ <label>First Name:</label>
+ <input type='text' formControlName=firstName/><br/> <!-- initialize the value-->
+ <div *ngIf='(personForm.controls.firstName.touched || personForm.controls.firstName.dirty) && personForm.controls.firstName.invalid'>
+   <div *ngIf='personForm.controls.firstName.errors.required' style="color:red">
+      firstName is required!!
+   </div>
+ </div>
+ <label>Password:</label>
+ <input type='password' formControlName=password/><br/>
+ <div *ngIf='(personForm.controls.password.touched || personForm.controls.password.dirty) && personForm.controls.password.invalid'>
+   <div *ngIf='personForm.controls.password.errors.required' style="color:red">
+      password is required!!
+   </div>
+   <div *ngIf='personForm.controls.password.errors.pattern' style="color:red">
+      Pattern is required!!
+   </div>
+ </div><br/>
+ <label>Gender:</label>
+ <input type='radio' formControlName='gender' value='male'/>Male
+ <input type='radio' formControlName='gender' value='female'/>Female
+<div *ngIf='(personForm.controls.gender.touched || personForm.controls.gender.dirty) && personForm.controls.gender.invalid'>
+   <div *ngIf='personForm.controls.gender.errors.required' style="color:red">
+      Gender is required!!
+   </div>
+  
+ </div><br/>
+ Education:<select formControlName='education'>
+   <option value=''>--Select Education--</option>
+   <option *ngFor='let edu of qualification' [value]=edu>{{edu}}</option>
+
+ </select>
+<div *ngIf='(personForm.controls.education.touched || personForm.controls.education.dirty) && personForm.controls.education.invalid'>
+   <div *ngIf='personForm.controls.education.errors.required' style="color:red">
+      Education is required!!
+   </div>
+</div><br/>
+<label>Email:</label>
+ <input type='text' formControlName=email/><br/>
+ <div *ngIf='(personForm.controls.email.touched || personForm.controls.email.dirty) && personForm.controls.email.invalid'>
+   <div *ngIf='personForm.controls.email.errors.required' style="color:red">
+      Email is required!!
+   </div>
+   <div *ngIf='personForm.controls.email.errors.pattern' style="color:red">
+      Email pattern is required!!
+   </div>
+ </div><br/>
+
+ <div formGroupName=address>
+   <label>City:</label>
+  <input type='text' formControlName=city/><br/>
+  <div *ngIf='(personForm.controls.address.controls.city.touched || personForm.controls.address.controls.city.dirty) && personForm.controls.address.controls.city.invalid'>
+   <div *ngIf='personForm.controls.address.controls.city.errors.required' style="color:red">
+      City is required!!
+   </div>
+  
+ </div><br/>
+  <label>State:</label>
+  <input type='text' formControlName=state/><br/>
+  <div *ngIf='(personForm.controls.address.controls.state.touched || personForm.controls.address.controls.state.dirty) && personForm.controls.address.controls.state.invalid'>
+   <div *ngIf='personForm.controls.address.controls.state.errors.required' style="color:red">
+      State is required!!
+   </div>
+  
+ </div><br/>
+ </div>
+ 
+ <button class='btn btn-primary' [disabled]=!personForm.valid value='Save Details'>Save Person</button>
+</form>
+

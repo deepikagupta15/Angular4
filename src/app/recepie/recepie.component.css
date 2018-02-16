@@ -1,0 +1,13 @@
+h2 {
+    color: brown;
+    font-style: italic;
+}
+span {
+    position: relative;
+    width:800px;
+    height: 100px;
+    left:500px;
+    background-color: pink;
+    font-weight: bold;
+    border:3px solid black;
+}
