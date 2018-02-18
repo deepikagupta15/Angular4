@@ -1,0 +1,10 @@
+<div>
+  <ul>
+    <li *ngFor='let prod of products'>
+    
+      <h2><a [routerLink]="['/productDetails',prod.prodName]">{{prod.prodName | uppercase}}</a></h2>
+    </li>
+  </ul>
+</div>
+<br/><hr/>
+

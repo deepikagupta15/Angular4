@@ -24,6 +24,7 @@ export class PersonComponent implements OnInit {
       'gender':['',Validators.required],
       'education':['',Validators.required],
       'email':['',[Validators.required,Validators.pattern(this.emailPattern)]],
+      // nested Form Group
       'address':this.fb.group({
         'city': ['',Validators.required],
         'state': ['',Validators.required],
@@ -37,6 +38,6 @@ export class PersonComponent implements OnInit {
   }
 
   savePerson(personForm:any) {
-    console.log(personForm);
+    console.log(personForm.firstName);
   }
 }

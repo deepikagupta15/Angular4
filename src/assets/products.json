@@ -1,0 +1,7 @@
+[
+     {"prodId":101,"prodName":"iPhone","prodPrice":56000,"purchaseDate":"2014/3/12"},
+     {"prodId":102,"prodName":"iPad","prodPrice":76000,"purchaseDate":"2015/3/12"},
+     {"prodId":103,"prodName":"iPod","prodPrice":5000,"purchaseDate":"2013/3/12"},
+	 {"prodId":104,"prodName":"Fitbit","prodPrice":10000,"purchaseDate":"2015/4/12"},
+	 {"prodId":105,"prodName":"Spinner","prodPrice":1000,"purchaseDate":"2017/5/12"}
+]
